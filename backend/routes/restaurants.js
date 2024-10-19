@@ -6,8 +6,8 @@ const supabaseProvider = require("../provider/supabase");
  * Feature 1: Getting a list of restaurants
  */
 router.get("/", async (_req, res) => {
-  const { data } = await supabaseProvider.from("restaurants").select("*");
-
+  const { data, error } = await supabaseProvider.from("restaurants").select("*");
+  console.log("data:", data, "error:", error);
   res.json(data);
 });
 
